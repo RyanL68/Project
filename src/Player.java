@@ -12,13 +12,13 @@ public class Player {
 
     private int numPotions;
 
-    public Player(int maxHP,int atk,int def,int lvl,int numPotions,int coins){
+    public Player(int maxHP,int atk,int def,int lvl,int numPotions){
         this.maxHP=maxHP;
         this.atk=atk;
         this.def=def;
         this.lvl=lvl;
         this.numPotions=numPotions;
-        this.coins=coins;
+
     }
 
     public void heal(){
@@ -43,13 +43,32 @@ public class Player {
     public int getcoin(){
         return coins;
     }
+    public int setcoin(int coins,int ccoin){
+        this.coins=coins;
+        coins=+ccoin;
+        return coins;
+    }
+
 
     public int getHp(){
         return HP;
     }
+    public int getMaxHP(){
+        return maxHP;
+    }
 
     public void setHP(int hp){
         HP = hp;
+    }
+
+    public void changeHP(){
+    maxHP = maxHP+15;
+    }
+    public void changeAttack(){
+        atk=atk+5;
+    }
+    public void changelvl(){
+        lvl=lvl+1;
     }
 
     public boolean isAlive(){
@@ -69,12 +88,14 @@ public class Player {
             atk=50;
             def=60;
             System.out.println("You have chosen Charles!");
+            coins=10;
         }
         if(choice.equals("2")){
             Character="Misty";
             maxHP=250;
             atk=70;
             def=10;
+            coins=10;
             System.out.println("You have chosen Misty!");
         }
         if (choice.equals("3")){
@@ -82,12 +103,13 @@ public class Player {
             maxHP=150;
             atk=250;
             def=5;
+            coins=10;
             System.out.println("You have chosen Roan!");
         }
     }
     public void combat(int damage){
         HP=HP-damage;
-        System.out.println("You got hit! You take "+damage+"damage!");
+        System.out.println("You got hit! You take "+damage+" Damage!");
     }
 
     public void buypotion(){

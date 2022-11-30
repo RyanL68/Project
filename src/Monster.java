@@ -11,6 +11,14 @@ public class Monster {
         this.def = def;
     }
 
+    public boolean isAlive(){
+        if(hp > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
     public int getHp() {
         return hp;
     }
@@ -48,8 +56,10 @@ public class Monster {
     }
 
     public void combat(int damage){
-        System.out.println("You hit "+Name+" for "+damage+" Damage!");
         hp=hp-damage;
+        System.out.println("You hit "+ BName()+" for "+damage+" Damage!");
+
+
     }
 
     }
