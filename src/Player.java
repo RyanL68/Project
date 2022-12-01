@@ -16,7 +16,8 @@ public class Player {
 
     }
 
-    public Player(int maxHP, int atk, int lvl, int numPotions) {
+    public Player(int maxHP, int atk, int lvl,int coins, int numPotions) {
+        this.coins=coins;
         this.maxHP = maxHP;
         this.atk = atk;
         this.lvl = lvl;
@@ -52,7 +53,7 @@ public class Player {
     }
 
     public void setcoin(int coin) {
-        this.coins = +coin;
+        coins += coin;
     }
 
 
@@ -109,10 +110,14 @@ public class Player {
     }
 
     public void lvlup(int kcount) {
+        if(kcount%1==0){
+            int rand=(int)(Math.random()*10)+1;
+            coins+=rand;
+        }
         if (kcount % 2 == 0) {
-            lvl = +1;
-            maxHP = +15;
-            atk = +5;
+            lvl += 1;
+            maxHP += 15;
+            atk += 5;
             System.out.println("You leveled up! Your stats increase");
         }
     }

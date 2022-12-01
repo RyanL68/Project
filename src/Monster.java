@@ -8,15 +8,16 @@ public class Monster {
     private int kcount;
 
     public int getkcount() {
+
         return kcount;
     }
 
 
 
-    public Monster(int hp, int atk) {
+    public Monster(int hp, int atk,int kcount) {
         this.hp = hp;
         this.atk = atk;
-        kcount=1;
+        this.kcount=kcount;
     }
 
     public boolean isAlive() {
@@ -43,16 +44,16 @@ public class Monster {
         int rand = (int) (Math.random() * 4);
         if (rand == 1) {
             Name = "Orc";
-            hp = 200;
-            atk = 30;
+            hp = 600;
+            atk = 60;
         } else if (rand == 2) {
             Name = "Goblin";
-            hp = 100;
-            atk = 30;
+            hp = 400;
+            atk = 50;
         } else {
             Name = "Troll";
-            hp = 500;
-            atk = 5;
+            hp = 1000;
+            atk = 20;
         }
         this.Name = Name;
         return Name;
@@ -67,12 +68,12 @@ public class Monster {
         }
 
         if(!isAlive()){
-            int rand = (int) (Math.random() * 10);
+            kcount++;
+            int rand = (int) (Math.random() * 10 + 1);
             p.setcoin(rand);
+            System.out.println(p.getcoin());
             System.out.println("You killed " + Name);
             System.out.println("You got " + rand + " coins!");
-            System.out.println("You got " + rand + " coins!");
-            kcount++;
             }
 
         }

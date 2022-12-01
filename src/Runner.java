@@ -1,19 +1,18 @@
 import java.util.Scanner;
-public class Runner{
+public class
+Runner{
 public static void main(String[] args){
     Scanner scan = new Scanner(System.in);
-    Player p = new Player();
-    Monster m = new Monster(0,0);
-    p.setcoin(20);
+    Player p = new Player(1,1,1,0,3);
+    Monster m = new Monster(0,0,1);
     int kcount=1;
-    p.setcoin(10);
     System.out.println("Welcome to Ryan's rpg Game");
     System.out.println("You can choose your adventure as one of these characters \n1. Charles\nCharles is a knight with high Health and normal attack damage\n2. Misty\nMisty is an archer with high damage but lacks in health \n3. Roan\nRoan is a mage. He is a glass canon.\nenter 1 2 or 3 to select ur character.");
     String cho = scan.nextLine();
     p.Character(cho);
     System.out.println("You start you adventure down a single path....");
 
-        p.setHP(100);
+        p.setHP(p.getMaxHP());
     while(p.isAlive()) {
         String choice = "";
         System.out.println("----------------------------------");
