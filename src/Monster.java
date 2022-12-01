@@ -1,5 +1,5 @@
 public class Monster {
-    Player p = new Player();
+
     private String Name;
     private int hp;
     private int atk;
@@ -28,6 +28,7 @@ public class Monster {
         }
 
     }
+
 
     public int getHp() {
         return hp;
@@ -65,19 +66,12 @@ public class Monster {
         if (isAlive()) {
             hp = hp - damage;
             System.out.println("You hit " + Name + " for " + damage + " Damage!");
-        }
 
-        if(!isAlive()){
+        }else if (!isAlive()){
             kcount++;
-            int rand = (int) (Math.random() * 10 + 1);
-            p.setcoin(rand);
-            System.out.println(p.getcoin());
-            System.out.println("You killed " + Name);
-            System.out.println("You got " + rand + " coins!");
-            }
-
         }
 
+        }
 
 
 

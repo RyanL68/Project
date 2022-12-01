@@ -3,8 +3,9 @@ public class
 Runner{
 public static void main(String[] args){
     Scanner scan = new Scanner(System.in);
-    Player p = new Player(1,1,1,0,3);
+    Player p = new Player(1,1,1,3);
     Monster m = new Monster(0,0,1);
+    p.setcoin(0);
     int kcount=1;
     System.out.println("Welcome to Ryan's rpg Game");
     System.out.println("You can choose your adventure as one of these characters \n1. Charles\nCharles is a knight with high Health and normal attack damage\n2. Misty\nMisty is an archer with high damage but lacks in health \n3. Roan\nRoan is a mage. He is a glass canon.\nenter 1 2 or 3 to select ur character.");
@@ -121,6 +122,12 @@ public static void main(String[] args){
                         System.out.println(Name + " HP: " + m.getHp());
 
                     }
+                }
+                if(kcount%1==0){
+                    int rand=(int)(Math.random()*10)+1;
+                    p.changecoins(rand);
+                    System.out.println("You killed " +Name);
+                    System.out.println("You got " +rand + " coins!");
                 }
 
         } else if (fight.equalsIgnoreCase("N")) {

@@ -1,6 +1,6 @@
 public class Player {
 
-
+Monster m = new Monster(1,1,1);
     private int HP;
     private int maxHP;
     private int atk;
@@ -16,8 +16,7 @@ public class Player {
 
     }
 
-    public Player(int maxHP, int atk, int lvl,int coins, int numPotions) {
-        this.coins=coins;
+    public Player(int maxHP, int atk, int lvl, int numPotions) {
         this.maxHP = maxHP;
         this.atk = atk;
         this.lvl = lvl;
@@ -51,9 +50,12 @@ public class Player {
     public int getcoin() {
         return coins;
     }
+    public void changecoins(int con){
+        coins+=con;
+    }
 
     public void setcoin(int coin) {
-        coins += coin;
+        coins =coins;
     }
 
 
@@ -110,10 +112,6 @@ public class Player {
     }
 
     public void lvlup(int kcount) {
-        if(kcount%1==0){
-            int rand=(int)(Math.random()*10)+1;
-            coins+=rand;
-        }
         if (kcount % 2 == 0) {
             lvl += 1;
             maxHP += 15;
