@@ -67,7 +67,8 @@ public class Monster {
             hp = hp - damage;
             System.out.println("You hit " + Name + " for " + damage + " Damage!");
 
-        }else if (!isAlive()){
+        }
+        if (!isAlive()){
             kcount++;
         }
 
