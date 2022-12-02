@@ -1,6 +1,8 @@
 public class Player {
 
-Monster m = new Monster(1,1,1);
+Monster m = new Monster(1,1);
+
+
     private int HP;
     private int maxHP;
     private int atk;
@@ -105,19 +107,45 @@ Monster m = new Monster(1,1,1);
         this.Character = Character;
     }
 
-    public void combat(int damage) {
-        HP = HP - damage;
-        System.out.println("You got hit! You take " + damage + " Damage!");
+    public void combat(int damage,int count,int num) {
+
+
+
+        if(count==3){
+            if(num==3){
+                System.out.println("Troll Hits You really Hard! You get Stunned!");
+                System.out.println("You take " + damage*2 + " Damage!");
+                System.out.println("You got hit! You take " + damage + " Damage!");
+                HP = HP - damage*2;
+                HP = HP - damage;
+            } if (num==2){
+                System.out.println("Goblin furiously stabs you");
+                System.out.println("You got hit! You take " + damage/2 + " Damage!");
+                System.out.println("You got hit! You take " + damage/2 + " Damage!");
+                System.out.println("You got hit! You take " + damage/2 + " Damage!");
+                HP = HP - damage/2;
+                HP = HP - damage/2;
+                HP = HP - damage/2;
+
+            } else if (num==3){
+                System.out.println("Orc screams in rage! You get knocked back by the roar!");
+                System.out.println("You knocked back and you take " + damage/3 + " Damage!");
+                System.out.println("You get up and see Orc has healed!");
+                m.changeHp(300);
+            }
+        }else{
+            HP = HP - damage;
+            System.out.println("You got hit! You take " + damage + " Damage!");
+        }
 
     }
 
-    public void lvlup(int kcount) {
-        if (kcount % 2 == 0) {
+    public void lvlup() {
             lvl += 1;
             maxHP += 15;
             atk += 5;
             System.out.println("You leveled up! Your stats increase");
-        }
+
     }
 
     public void buypotion() {

@@ -1,3 +1,5 @@
+import javax.management.StringValueExp;
+
 public class Monster {
 
     private String Name;
@@ -5,19 +7,15 @@ public class Monster {
     private int atk;
 
 
-    private int kcount;
 
-    public int getkcount() {
-
-        return kcount;
-    }
-
-
-
-    public Monster(int hp, int atk,int kcount) {
+    public Monster(int hp, int atk) {
         this.hp = hp;
         this.atk = atk;
-        this.kcount=kcount;
+
+
+    }
+    public Monster(){
+
     }
 
     public boolean isAlive() {
@@ -30,6 +28,11 @@ public class Monster {
     }
 
 
+
+    public int changeHp(int change){
+        hp+=change;
+        return hp;
+    }
     public int getHp() {
         return hp;
     }
@@ -40,14 +43,14 @@ public class Monster {
 
 
 
-    public String BName() {
+    public String BName(int num) {
         String Name = " ";
-        int rand = (int) (Math.random() * 4);
-        if (rand == 1) {
+
+        if (num== 1) {
             Name = "Orc";
             hp = 600;
             atk = 60;
-        } else if (rand == 2) {
+        } else if (num== 2) {
             Name = "Goblin";
             hp = 400;
             atk = 50;
@@ -61,6 +64,8 @@ public class Monster {
     }
 
 
+
+
     public void combat(int damage) {
 
         if (isAlive()) {
@@ -68,9 +73,7 @@ public class Monster {
             System.out.println("You hit " + Name + " for " + damage + " Damage!");
 
         }
-        if (!isAlive()){
-            kcount++;
-        }
+
 
         }
 
