@@ -14,6 +14,7 @@ public static void main(String[] args){
     String cho = scan.nextLine();
     p.Character(cho);
     System.out.println("You start you adventure down a single path....");
+    int count = 0;
 
         p.setHP(p.getMaxHP());
     while(p.isAlive()) {
@@ -29,7 +30,7 @@ public static void main(String[] args){
         choice = scan.nextLine();
         int num = (int)((Math.random()*4)+1);
         String Name = m.BName(num);
-        int num2 = 0;
+
 
         if (choice.equals("0")) {
             System.out.println("lvl: " + p.getLvl());
@@ -66,7 +67,7 @@ public static void main(String[] args){
             System.out.println("Fight? Y N");
             fight = scan.nextLine();
 
-            int count = 2;
+
             if (fight.equalsIgnoreCase("Y")) {
                 System.out.println("You are Now fighting " + Name);
                 while (p.isAlive() && m.isAlive()) {
@@ -76,28 +77,29 @@ public static void main(String[] args){
                     System.out.println("3.Heal");
                     temp2 = scan.nextLine();
                     if (temp2.equals("1")) {
-                        p.combat(m.getAtk(),bosscount,num2);
+                        p.combat(m.getAtk(),bosscount,Name);
                         m.combat(p.getATK());
                         System.out.println("Your HP: " + p.getHp() + "/" + p.getMaxHP());
                         System.out.println(Name + " HP: " + m.getHp());
+                        bosscount++;
                         count++;
-                        num2++;
+
                     }
                     else if (temp2.equals("2")) {
-                        if (count % 3 == 0) {
+                        if (count>1) {
                             if (cho.equals("1")) {
-                                p.combat(m.getAtk(),bosscount,num2);
+                                p.combat(m.getAtk(),bosscount,Name);
                                 m.combat(p.getATK() * 2);
                                 System.out.println("You hit " + Name + " really hard stunning " + Name);
                                 m.combat(p.getATK());
                                 System.out.println("Your HP: " + p.getHp() + "/" + p.getMaxHP());
                                 System.out.println(Name + " HP: " + m.getHp());
                                 bosscount++;
-                                count=1;
-                                num2++;
+                                count=0;
+
                             }
                             if (cho.equals("2")) {
-                                p.combat(m.getAtk(),bosscount,num2);
+                                p.combat(m.getAtk(),bosscount,Name);
                                 System.out.println("You shoot a flurry of arrows at " + Name);
                                 m.combat(p.getATK() / 2);
                                 m.combat(p.getATK() / 2);
@@ -106,11 +108,11 @@ public static void main(String[] args){
                                 System.out.println("Your HP: " + p.getHp() + "/" + p.getMaxHP());
                                 System.out.println(Name + " HP: " + m.getHp());
                                 bosscount++;
-                                count=1;
-                                num2++;
+                                count=0;
+
                             }
                             if (cho.equals("3")) {
-                                p.combat(m.getAtk(),bosscount,num2);
+                                p.combat(m.getAtk(),bosscount,Name);
                                 System.out.println("You bombard " + Name + " with fireballs");
 
                                     m.combat(p.getATK() / 3);
@@ -121,8 +123,8 @@ public static void main(String[] args){
                                 System.out.println("Your HP: " + p.getHp() + "/" + p.getMaxHP());
                                 System.out.println(Name + " HP: " + m.getHp());
                                 bosscount++;
-                                count=1;
-                                num2++;
+                                count=0;
+
                             }
 
                         }else{
@@ -133,26 +135,26 @@ public static void main(String[] args){
                         p.heal();
                         System.out.println("Healed to full HP");
                         System.out.println("You have " + p.getNumPotions() + " potions");
-                        p.combat(m.getAtk(),bosscount,num);
+                        p.combat(m.getAtk(),bosscount,Name);
                         System.out.println("Your HP: " + p.getHp() + "/" + p.getMaxHP());
                         System.out.println(Name + " HP: " + m.getHp());
                         bosscount++;
-                        num2++;
+
                     }else{
                         System.out.print("Enter a valid input..");
                         System.out.print("while you were testing the numbers ");
-                        p.combat(m.getAtk(),bosscount,num2);
+                        p.combat(m.getAtk(),bosscount,Name);
                     }
 
                 }
-                if(kcount%1==0){
+                if(kcount%1==0&&p.isAlive()){
                     int rand=(int)(Math.random()*10)+1;
                     p.changecoins(rand);
                     System.out.println("You killed " +Name);
                     System.out.println("You got " +rand + " coins!");
                     kcount++;
                 }
-                if(kcount%3==0) {
+                if(kcount%3==0&&p.isAlive()) {
                     p.lvlup();
                 }
 

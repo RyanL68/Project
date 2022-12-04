@@ -107,18 +107,19 @@ Monster m = new Monster(1,1);
         this.Character = Character;
     }
 
-    public void combat(int damage,int count,int num) {
+    public void combat(int damage,int count,String Name) {
 
 
 
-        if(count==3){
-            if(num==3){
+        if(count%3==0){
+            if(Name.equalsIgnoreCase("Troll")){
                 System.out.println("Troll Hits You really Hard! You get Stunned!");
                 System.out.println("You take " + damage*2 + " Damage!");
                 System.out.println("You got hit! You take " + damage + " Damage!");
                 HP = HP - damage*2;
                 HP = HP - damage;
-            } if (num==2){
+                count=0;
+            } if (Name.equalsIgnoreCase("Goblin")){
                 System.out.println("Goblin furiously stabs you");
                 System.out.println("You got hit! You take " + damage/2 + " Damage!");
                 System.out.println("You got hit! You take " + damage/2 + " Damage!");
@@ -126,12 +127,14 @@ Monster m = new Monster(1,1);
                 HP = HP - damage/2;
                 HP = HP - damage/2;
                 HP = HP - damage/2;
+                count=0;
 
-            } else if (num==3){
+            } else if (Name.equalsIgnoreCase("Orc")){
                 System.out.println("Orc screams in rage! You get knocked back by the roar!");
                 System.out.println("You knocked back and you take " + damage/3 + " Damage!");
                 System.out.println("You get up and see Orc has healed!");
                 m.changeHp(300);
+                count=0;
             }
         }else{
             HP = HP - damage;
