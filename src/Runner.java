@@ -23,7 +23,7 @@ public static void main(String[] args){
         System.out.println("----------------------------------");
         System.out.println("0.stats");
         System.out.println("1.buy potion");
-        System.out.println("2.forward");
+        System.out.println("2.hunt");
         System.out.println("3.heal");
         System.out.println("please put 0-3 to choose an option");
         System.out.println("----------------------------------");
@@ -104,7 +104,7 @@ public static void main(String[] args){
                                 m.combat(p.getATK() / 2);
                                 m.combat(p.getATK() / 2);
                                 m.combat(p.getATK() / 2);
-                                m.combat(p.getATK() / 2);
+                                    m.combat(p.getATK() / 2);
                                 System.out.println("Your HP: " + p.getHp() + "/" + p.getMaxHP());
                                 System.out.println(Name + " HP: " + m.getHp());
                                 bosscount++;
@@ -173,5 +173,6 @@ public static void main(String[] args){
 
 
     }
+    System.out.print("YOU DIED");
 }
 }
